@@ -1,25 +1,19 @@
 #!/usr/bin/python3
 
-total_boxes = len(boxes)
+def canUnlockAll(boxes):
+    from collections import deque
 
-setofkeys = [0]
-
-counter = 0
-
-index = 0
-
-while index < len(setofkeys):
-
-    setkey = setofkeys[index]
-
-    for key in boxes[setkey]:
-
-        if 0 < key < total_boxes and key not in setofkeys:
-
-            setofkeys.append(key)
-
-            counter += 1
-
-    index += 1
-
-return counter == total_boxes - 1
+    # Initialize a queue for BFS and a set for visited boxes
+    queue = deque([0])
+    visited = set([0])
+    
+    # Perform BFS
+    while queue:
+        current_box = queue.popleft()
+        for key in boxes[current_box]:
+            if key not in visited and key < len(boxes):
+                visited.add(key)
+                queue.append(key)
+    
+    # Check if all boxes have been visited
+    return len(visited) == len(boxes)
