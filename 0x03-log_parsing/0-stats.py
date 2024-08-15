@@ -15,10 +15,12 @@ def print_stats():
         if status_codes[code] > 0:
             print(f"{code}: {status_codes[code]}")
 
+
 def signal_handler(sig, frame):
     """Handles keyboard interruption"""
     print_stats()
     sys.exit(0)
+
 
 # Register signal handler for keyboard interruption (CTRL + C)
 signal.signal(signal.SIGINT, signal_handler)
