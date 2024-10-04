@@ -8,7 +8,7 @@ def makeChange(coins, total):
 
     # Create a list to store the minimum coins needed for each amount
     dp = [float('inf')] * (total + 1)
-    dp[0] = 0  # Base case: 0 coins are needed to make the total of 0
+    dp[0] = 0
 
     # Loop through each coin
     for coin in coins:
