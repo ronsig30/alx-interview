@@ -18,7 +18,6 @@ def makeChange(coins, total):
              Return 0 if total is 0 or less.
              Return -1 if total cannot be met with the available coins.
     """
-    # Memoization dictionary to store the fewest coins for each total
     memo = {}
 
     def helper(rem):
@@ -32,11 +31,10 @@ def makeChange(coins, total):
             int: Fewest number of coins needed to meet the remainder.
                  Return -1 if it's not possible.
         """
-        # Base cases
         if rem < 0:
-            return -1  # Not possible to make this amount
+            return -1
         if rem == 0:
-            return 0   # No coins are needed for total 0
+            return 0
 
         # Check if the result is already in the memo
         if rem in memo:
