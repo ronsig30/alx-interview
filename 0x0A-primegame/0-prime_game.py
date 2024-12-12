@@ -20,7 +20,6 @@ def isWinner(x, nums):
             for multiple in range(i * i, max_n + 1, i):
                 is_prime[multiple] = False
 
-    # Precompute the number of primes up to each index
     primes_count = [0] * (max_n + 1)
     for i in range(1, max_n + 1):
         primes_count[i] = primes_count[i - 1] + (1 if is_prime[i] else 0)
